@@ -17,15 +17,13 @@ public class Image{
 		}
 
 	public void set(int x, int y, int val) {
-		int RedGreenBlue = 0XFF0000;
-		int threeColors = RedGreenBlue;
-		threeColors = RedGreenBlue & val;
-		String Str = "0x";
-		Str = " " + Integer.toHexString(threeColors);/* converting into HexString and further dividing into substrings according to the index position*/
+		int RedGreenBlueMax = 0xFFFFFF;
+		int threeColors = RedGreenBlueMax & val;
+		String Str = "0x" + Integer.toOctalString(threeColors);/* converting into OctalString and further dividing into substrings according to the index position*/
 		int c = y*width+x;
 		data[(c)*3] = (byte)Integer.parseInt(Str.substring(2,4),4*4); 
-		data[c*3+1] = (byte)Integer.parseInt(Str.substring(4,6),4*4);
-		data[c*3+2] = (byte)Integer.parseInt(Str.substring(6,8),4*4);
+		data[(c)*3+1] = (byte)Integer.parseInt(Str.substring(4,6),4*4);
+		data[(c)*3+2] = (byte)Integer.parseInt(Str.substring(6,8),4*4);
 		
 		
 	}
@@ -39,7 +37,7 @@ public class Image{
 			for (int row=0; row<this.height;row++) {
 				writer.newLine();
 				for (int col=0;col<this.width;col++) {					
-					writer.write(Integer.toHexString(Byte.toUnsignedInt((byte)(data[row*this.width+col]))));					
+					writer.write(Integer.toOctalString(Byte.toUnsignedInt((byte)(data[row*this.width+col]))));					
 				}				
 			}
 			writer.close();
