@@ -17,7 +17,7 @@ public class Image{
 		}
 
 	public void set(int x, int y, int val) {
-		int RedGreenBlue = 0x1000000;
+		int RedGreenBlue = 0XFF0000;
 		int threeColors = RedGreenBlue;
 		threeColors = RedGreenBlue & val;
 		String Str = "0x";
