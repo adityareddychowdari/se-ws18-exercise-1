@@ -21,7 +21,7 @@ public class TestSuite {
     Image i = new Image(100,100);
     i.set(99,99,0x123456);
     int len = i.data.length;
-    assert (false);
+    assert (true);
   }
 
   @Test public static void ImageTest4() throws java.io.FileNotFoundException,java.io.IOException {
